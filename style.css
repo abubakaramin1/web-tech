@@ -1,0 +1,87 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: "Raleway", Helvetica, Arial, sans-serif;
+}
+
+
+
+/* Container */
+#header {
+  position: relative;
+  text-align: center;
+  padding-top: 0; /* Remove extra padding since we will control spacing with logo-container */
+}
+
+/* Logo container */
+#logo-container {
+  background-color: #cae2ec; /* 👈 your color */
+  width: 100%; /* 👈 take full width */
+  text-align: center; /* center logo inside */
+  padding: 20px 0; /* top and bottom spacing */
+  position: relative;
+}
+
+/* Logo */
+#logo {
+    margin-top: 2%;
+  width: 150px; /* adjust size */
+  height: auto;
+  
+}
+
+/* Background Image */
+#bg {
+  width: 100%;
+  display: block;
+  margin-top: 0; /* no extra gap needed now */
+}
+
+#card{
+    background-color: #ececec;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.c-text{
+    color: #7f8881;
+    font-size: 150%;
+    margin-top: 10%;
+}
+
+#text-container{
+    background-color: #f6f6f6;
+    font-size: 31px;
+    font-weight:1;
+    padding: 7%;
+    padding-left: 15%;
+    padding-right: 15%;
+    color: #1a251c;
+    line-height: 32px;
+    font-family: sans-serif;
+}
+
+#s2-img, #s2_text{
+    margin-left: 9%;
+    margin-top: 5%;
+    width: 40%;
+}
+
+#second-section{
+    display: flex;
+}
+
+#s2_text{
+    background-color: aqua;
+    margin-left: -10px;
+    padding-top: 100px;
+    padding-left: 20px;
+}
+
+#s2_2{
+    display: flex;
+    justify-content: center;
+}
