@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BeDietitian</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <div id="header">
@@ -16,39 +17,173 @@
     <img src="assets/images/imgi_2_home_dietitian_sectionbg_1.jpg" alt="background" id="bg">
 
     <div id="card">
-        <div id="inner-card">
+        <div class="inner-card">
             <img src="assets\images\imgi_3_home_dietitian_icon1.png" alt="">
             <p class="c-text">Quisque sollicitudin metus</p>
         </div>
 
-        <div id="inner-card">
+        <div class="inner-card">
             <img src="assets\images\imgi_4_home_dietitian_icon2.png" alt="">
             <p class="c-text">Sed vestibulum neque</p>
         </div>
 
-        <div>
+        <div class="inner-card">
             <img src="assets\images\imgi_5_home_dietitian_icon3.png" alt="">
             <p class="c-text">Aliquam volutpat amet</p>
         </div>
     </div>
     <div id="text-container">
-        <p>Here are some advices from Dr Dianna Finzley.
+        <p>Here are some advices from Dr Dianna Finzley. <br>
 Know better what’s inside food.</p>
     </div>
   </div>
 
+  <!-- Product CTA Section -->
+  
+
+  <!-- Benefits / Ingredients Section -->
+  
+
   <div id="second-section">
-    <img src="assets\images\imgi_6_home_dietitian_pic1.jpg" alt="" id="s2-img">
+    <div class="doctor-image-container">
+      <img src="assets\images\imgi_6_home_dietitian_pic1.jpg" alt="Dr Diana Finzley" id="s2-img">
+      <div class="fruits-decoration">
+        <div class="fruit apple"></div>
+        <div class="fruit orange"></div>
+        <div class="fruit kiwi"></div>
+        <div class="fruit apple-green"></div>
+      </div>
+    </div>
     <div id="s2_text"> 
-        <h2>Dr Diana Finzley</h2>
+        <h2 class="s2_h2">Dr Diana Finzley</h2>
         <h3>Lorem ipsum dolor mit samet</h3>
         <div id="s2_2">
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-                pariatur. Excepteur 
-                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+            <div class="text-column">
+                <p class="s2_p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                    pariatur. Excepteur 
+                    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+            </div>
+            <div class="text-column">
+                <p class="s2_p">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
                     consequuntur magni dolores eos qui ratione qui dolorem ipsum quia consectetur.</p>
+            </div>
         </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>Contact me at: +23 345 6544 65</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>Write me at: noreply@envato.com</span>
+            </div>
+        </div>
+        <p class="about-note">In suscipit magna tellus, at facilisis eros pellentesque a. Maecenas non enim aliquet, condimentum metus in, ullamcorper quam.</p>
+    </div>
+  </div>
+
+  <!-- Bananas Article Section -->
+  <div class="article-section bananas-article">
+    <div class="article-content">
+      <h2>What's inside bananas?</h2>
+      <p class="article-subtitle">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatee.</p>
+      <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione qui dolorem ipsum quia consectetur. Nunc lacinia ligula ut purus tempor feugiat. Vestibulum laoreet; eros sed vehicula ultrices, justo erat ornare mauris, ut lacinia velit sem vitae ipsum posuere.</p>
+      <a href="#" class="read-more-btn">Read more</a>
+    </div>
+    <div class="article-image">
+      <img src="assets/images/imgi_7_home_dietitian_pic2.jpg" alt="Bananas">
+    </div>
+  </div>
+
+  <!-- Onion Article Section -->
+  <div class="article-section onion-article">
+    <div class="article-image">
+      <img src="assets/images/imgi_8_home_dietitian_pic3.jpg" alt="Onions">
+    </div>
+    <div class="article-content">
+      <h2>The power of onion</h2>
+      <p class="article-subtitle">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatee.</p>
+      <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione qui dolorem ipsum quia consectetur. Nunc lacinia ligula ut purus tempor feugiat. Vestibulum laoreet; eros sed vehicula ultrices, justo erat ornare mauris, ut lacinia velit sem vitae ipsum posuere.</p>
+      <a href="#" class="read-more-btn">Read more</a>
+    </div>
+  </div>
+
+  <section class="product-cta">
+    <div class="product-cta-inner">
+      <h2 class="product-cta-title">Try our new Be Healing Tea with vitamines and micro
+        elements, which supports your diet</h2>
+      <a href="#" class="choose-buy-btn">Choose and buy</a>
+      <!-- <div class="product-cta-visual">
+        <img src="assets/images/imgi_14_header.png" alt="Healing Tea" />
+      </div> -->
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div class="benefits-inner">
+      <div class="benefit">
+        <h3>How does it help?</h3>
+        <p>Mauris quam magna, tincidunt maximus auctor vel, fringilla hendrerit est. Cras maximus diam quis metus condimentum, eu porttitor mauris lacinia.</p>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+      </div>
+      <div class="benefit">
+        <h3>Is it for you?</h3>
+        <p>Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor.</p>
+        <p>Aliquam erat ac ipsum. Integer aliquam purus. Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo vel bibendum sapien massa ac turpis.</p>
+      </div>
+      <div class="benefit">
+        <h3>Healing ingredients</h3>
+        <div class="chips">
+          <span class="chip">A</span>
+          <span class="chip">B</span>
+          <span class="chip">B</span>
+          <span class="chip">C</span>
+          <span class="chip">D</span>
+          <span class="chip">K</span>
+        </div>
+        <p>Cum sociis natoque penatibus</p>
+        <p>Vestibulum ut tempus purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sapien nisi, suscipit quis odio nec, porttitor tempor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fixed Sidebar -->
+  <section class="quote-banner">
+    <div class="quote-inner">
+      <p>Pharetra vestibulum at dui sed volutpat. Quisque vel lectus vestibulum purus pharetra luctus non id ligula viverra fusce. Pellentesque habitant morbi tristique senectus et netus et malesuada fames amet.</p>
+      <div class="quote-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span>© 2021 Betheme by </span><a href="#">Muffin group</a><span> | All Rights Reserved | Powered by </span><a href="#">WordPress</a>
+      </div>
+      <nav class="footer-right">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Packages</a>
+        <a href="#">Contact</a>
+        <a href="#" class="buy-link">Buy now</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="fixed-sidebar">
+    <div class="hamburger-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="sidebar-stats">600+<br>websites</div>
+    <div class="sidebar-buy">
+      <i class="fas fa-shopping-bag"></i>
+      Buy now
     </div>
   </div>
 </body>
