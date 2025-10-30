@@ -41,7 +41,7 @@ function seedFromApi() {
         allToDos.push({
           id: item.id,
           title: item.title,
-          completed: !!item.completed
+          completed: item.completed
         });
       }
       renderList(allToDos);
