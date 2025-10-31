@@ -121,7 +121,9 @@ function onEditClick() {
   var id = $(this).attr("data-id");
   var found = null;
   for (var i = 0; i < allToDos.length; i++) {
-    if (String(allToDos[i].id) === String(id)) { found = allToDos[i]; break; }
+    if (String(allToDos[i].id) === String(id)) { found = allToDos[i]; 
+      break; 
+    }
   }
   if (found) { fillFormFromItem(found); }
 }
