@@ -1,0 +1,49 @@
+<header id="<%= typeof headerId !== 'undefined' ? headerId : 'header' %>">
+  <% if (typeof headerId === 'undefined' || headerId === 'header') { %>
+    <!-- Logo -->
+    <div id="logo-container">
+      <a href="/"><img src="/semester project/assets/images/imgi_15_retina-dietitian.png" alt="logo" id="logo"></a>
+    </div>
+    <!-- Background -->
+    <img src="/semester project/assets/images/imgi_2_home_dietitian_sectionbg_1.jpg" alt="background" id="bg">
+
+    <div id="card">
+      <div class="inner-card">
+        <img src="/semester project/assets/images/imgi_3_home_dietitian_icon1.png" alt="">
+        <p class="c-text">Quisque sollicitudin metus</p>
+      </div>
+
+      <div class="inner-card">
+        <img src="/semester project/assets/images/imgi_4_home_dietitian_icon2.png" alt="">
+        <p class="c-text">Sed vestibulum neque</p>
+      </div>
+
+      <div class="inner-card">
+        <img src="/semester project/assets/images/imgi_5_home_dietitian_icon3.png" alt="">
+        <p class="c-text">Aliquam volutpat amet</p>
+      </div>
+    </div>
+    <div id="text-container">
+      <p>Here are some advices from Dr Dianna Finzley. <br>
+      Know better what's inside food.</p>
+    </div>
+  <% } else if (headerId === 'about-hero') { %>
+    <button class="about-hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <img src="/semester project/assets/images/imgi_15_retina-dietitian.png" alt="Dietitian" class="about-logo">
+    <p class="about-subtitle">BeTheme layout</p>
+    <h1 class="about-title">About dr Diana Finzley</h1>
+  <% } else if (headerId === 'packages-hero') { %>
+    <button class="about-hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <img src="/semester project/assets/images/imgi_15_retina-dietitian.png" alt="Dietitian" class="about-logo">
+    <p class="about-subtitle">Packages</p>
+  <% } %>
+</header>
+
