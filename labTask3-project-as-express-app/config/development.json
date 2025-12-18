@@ -1,0 +1,7 @@
+{
+  "jwtPrivateKey": "myPrivateKey",
+  "db": "mongodb+srv://abubakaramin1872003:Trustschool1@cluster0.skh4y.mongodb.net/ecommerce?appName=Cluster0",
+
+  "port": "4000",
+  "sessionSecret": "MySessionSecret"
+}

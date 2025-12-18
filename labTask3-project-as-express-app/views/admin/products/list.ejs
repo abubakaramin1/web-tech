@@ -1,0 +1,79 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4>All Products</h4>
+  <a href="/admin/products/create" class="btn btn-primary">
+    <i class="fas fa-plus"></i> Add New Product
+  </a>
+</div>
+
+<% if (products && products.length > 0) { %>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Color</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(function(product) { %>
+          <tr>
+            <td>
+              <% if (product.image) { %>
+                <img src="<%= product.image %>" alt="<%= product.name %>" 
+                     style="width: 60px; height: 60px; object-fit: cover;" 
+                     onerror="this.src='/images/imgi_5_home_dietitian_about_product_2.png'">
+              <% } else { %>
+                <img src="/images/imgi_5_home_dietitian_about_product_2.png" 
+                     alt="No image" style="width: 60px; height: 60px; object-fit: cover;">
+              <% } %>
+            </td>
+            <td><strong><%= product.name %></strong></td>
+            <td>
+              <% if (product.department) { %>
+                <span class="badge bg-info"><%= product.department %></span>
+              <% } else { %>
+                <span class="text-muted">-</span>
+              <% } %>
+            </td>
+            <td><strong class="text-success">$<%= product.price %></strong></td>
+            <td><%= product.color || '-' %></td>
+            <td>
+              <% if (product.description) { %>
+                <%= product.description.substring(0, 50) %><% if (product.description.length > 50) { %>...<% } %>
+              <% } else { %>
+                <span class="text-muted">No description</span>
+              <% } %>
+            </td>
+            <td>
+              <a href="/admin/products/edit/<%= product._id %>" class="btn btn-sm btn-warning">
+                <i class="fas fa-edit"></i> Edit
+              </a>
+              <a href="/admin/products/delete/<%= product._id %>" 
+                 class="btn btn-sm btn-danger" 
+                 onclick="return confirm('Are you sure you want to delete this product?')">
+                <i class="fas fa-trash"></i> Delete
+              </a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert alert-info mt-3">
+    <i class="fas fa-info-circle"></i> Total: <strong><%= products.length %></strong> products
+  </div>
+<% } else { %>
+  <div class="alert alert-warning text-center">
+    <h5><i class="fas fa-exclamation-triangle"></i> No Products Found</h5>
+    <p>You haven't added any products yet.</p>
+    <a href="/admin/products/create" class="btn btn-primary">
+      <i class="fas fa-plus"></i> Add Your First Product
+    </a>
+  </div>
+<% } %>

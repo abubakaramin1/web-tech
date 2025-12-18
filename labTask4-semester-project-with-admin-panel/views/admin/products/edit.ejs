@@ -1,0 +1,114 @@
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <div class="card">
+      <div class="card-header bg-warning text-dark">
+        <h4 class="mb-0">
+          <i class="fas fa-edit"></i> Edit Product
+        </h4>
+      </div>
+      <div class="card-body">
+        <!-- Current Image Preview -->
+        <% if (product.image) { %>
+          <div class="mb-3 text-center">
+            <label class="form-label"><strong>Current Image</strong></label>
+            <div>
+              <img src="<%= product.image %>" 
+                   alt="<%= product.name %>" 
+                   style="max-width: 200px; max-height: 200px; object-fit: cover;"
+                   onerror="this.src='/images/imgi_5_home_dietitian_about_product_2.png'"
+                   class="border rounded p-2">
+            </div>
+          </div>
+        <% } %>
+
+        <form action="/admin/products/edit/<%= product._id %>" method="POST" enctype="multipart/form-data">
+          <!-- Product Name -->
+          <div class="mb-3">
+            <label for="name" class="form-label">
+              <strong>Product Name *</strong>
+            </label>
+            <input type="text" 
+                   class="form-control" 
+                   id="name" 
+                   name="name" 
+                   value="<%= product.name %>"
+                   required>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-3">
+            <label for="price" class="form-label">
+              <strong>Price ($) *</strong>
+            </label>
+            <input type="text" 
+                   class="form-control" 
+                   id="price" 
+                   name="price" 
+                   value="<%= product.price %>"
+                   required>
+          </div>
+
+          <!-- Category/Department -->
+          <div class="mb-3">
+            <label for="department" class="form-label">
+              <strong>Category</strong>
+            </label>
+            <input type="text" 
+                   class="form-control" 
+                   id="department" 
+                   name="department" 
+                   value="<%= product.department || '' %>"
+                   placeholder="e.g., Tea, Supplements, Plans">
+          </div>
+
+          <!-- Color -->
+          <div class="mb-3">
+            <label for="color" class="form-label">
+              <strong>Color</strong>
+            </label>
+            <input type="text" 
+                   class="form-control" 
+                   id="color" 
+                   name="color" 
+                   value="<%= product.color || '' %>"
+                   placeholder="e.g., Green, Blue, Red">
+          </div>
+
+          <!-- Description -->
+          <div class="mb-3">
+            <label for="description" class="form-label">
+              <strong>Description</strong>
+            </label>
+            <textarea class="form-control" 
+                      id="description" 
+                      name="description" 
+                      rows="4"><%= product.description || '' %></textarea>
+          </div>
+
+          <!-- New Image Upload (optional) -->
+          <div class="mb-3">
+            <label for="image" class="form-label">
+              <strong>Update Image (Optional)</strong>
+            </label>
+            <input type="file" 
+                   class="form-control" 
+                   id="image" 
+                   name="image" 
+                   accept="image/*">
+            <small class="form-text text-muted">Leave empty to keep current image</small>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-warning">
+              <i class="fas fa-save"></i> Update Product
+            </button>
+            <a href="/admin/products" class="btn btn-secondary">
+              <i class="fas fa-times"></i> Cancel
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
