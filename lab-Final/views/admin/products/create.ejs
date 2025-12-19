@@ -1,0 +1,100 @@
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">
+          <i class="fas fa-plus"></i> Add New Product
+        </h4>
+      </div>
+      <div class="card-body">
+        <form action="/admin/products/create" method="POST" enctype="multipart/form-data">
+          <!-- Product Name -->
+          <div class="mb-3">
+            <label for="name" class="form-label">
+              <strong>Product Name *</strong>
+            </label>
+            <input type="text" 
+                   class="form-control" 
+                   id="name" 
+                   name="name" 
+                   required 
+                   placeholder="Enter product name">
+          </div>
+
+          <!-- Price -->
+          <div class="mb-3">
+            <label for="price" class="form-label">
+              <strong>Price ($) *</strong>
+            </label>
+            <input type="text" 
+                   class="form-control" 
+                   id="price" 
+                   name="price" 
+                   required 
+                   placeholder="e.g., 25.99">
+          </div>
+
+          <!-- Category/Department -->
+          <div class="mb-3">
+            <label for="department" class="form-label">
+              <strong>Category</strong>
+            </label>
+            <input type="text" 
+                   class="form-control" 
+                   id="department" 
+                   name="department" 
+                   placeholder="e.g., Tea, Supplements, Plans">
+            <small class="form-text text-muted">Examples: Tea, Supplements, Plans, Services, Bundles</small>
+          </div>
+
+          <!-- Color -->
+          <div class="mb-3">
+            <label for="color" class="form-label">
+              <strong>Color</strong>
+            </label>
+            <input type="text" 
+                   class="form-control" 
+                   id="color" 
+                   name="color" 
+                   placeholder="e.g., Green, Blue, Red">
+          </div>
+
+          <!-- Description -->
+          <div class="mb-3">
+            <label for="description" class="form-label">
+              <strong>Description</strong>
+            </label>
+            <textarea class="form-control" 
+                      id="description" 
+                      name="description" 
+                      rows="4" 
+                      placeholder="Enter product description..."></textarea>
+          </div>
+
+          <!-- Image Upload -->
+          <div class="mb-3">
+            <label for="image" class="form-label">
+              <strong>Product Image</strong>
+            </label>
+            <input type="file" 
+                   class="form-control" 
+                   id="image" 
+                   name="image" 
+                   accept="image/*">
+            <small class="form-text text-muted">Upload a product image (JPG, PNG, etc.)</small>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-success">
+              <i class="fas fa-save"></i> Create Product
+            </button>
+            <a href="/admin/products" class="btn btn-secondary">
+              <i class="fas fa-times"></i> Cancel
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

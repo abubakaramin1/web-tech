@@ -1,0 +1,173 @@
+<div class="products-page">
+  <div class="container py-5">
+    <h1 class="text-center mb-5">Our Products</h1>
+
+    
+    <div class="filters-section mb-4 p-4 bg-light rounded">
+      <h3 class="mb-3">Filter Products</h3>
+      <form method="GET" action="/products" class="row g-3">
+       
+        <div class="col-md-3">
+          <label for="category" class="form-label">Category</label>
+          <select name="category" id="category" class="form-select">
+            <option value="all" <%=selectedCategory==="" || selectedCategory==="all" ? "selected" : "" %>>All Categories
+            </option>
+            <% categories.forEach(function(cat) { %>
+              <option value="<%= cat %>" <%=selectedCategory===cat ? "selected" : "" %>><%= cat %>
+              </option>
+              <% }); %>
+          </select>
+        </div>
+
+      
+        <div class="col-md-3">
+          <label for="minPrice" class="form-label">Min Price ($)</label>
+          <input type="number" name="minPrice" id="minPrice" class="form-control" value="<%= minPrice %>" min="0"
+            step="0.01">
+        </div>
+
+       
+        <div class="col-md-3">
+          <label for="maxPrice" class="form-label">Max Price ($)</label>
+          <input type="number" name="maxPrice" id="maxPrice" class="form-control"
+            value="<%= maxPrice === 999999 ? "" : maxPrice %>" min="0" step="0.01">
+        </div>
+
+      
+        <div class="col-md-3 d-flex align-items-end">
+          <button type="submit" class="btn btn-primary me-2">Apply Filters</button>
+          <a href="/products" class="btn btn-secondary">Clear</a>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="results-info mb-3">
+      <p class="text-muted">
+        Showing <%= products.length %> of <%= totalProducts %> products
+            <% if (selectedCategory && selectedCategory !=="all" ) { %>
+              in category: <strong>
+                <%= selectedCategory %>
+              </strong>
+              <% } %>
+      </p>
+    </div>
+
+    
+    <% if (products.length===0) { %>
+      <div class="alert alert-info text-center">
+        <h4>No products found</h4>
+        <p>Try adjusting your filters or check back later.</p>
+      </div>
+      <% } else { %>
+        <div class="row g-4">
+          <% products.forEach(function(product) { %>
+            <div class="col-md-4 col-lg-3">
+              <div class="card h-100 product-card">
+                <% if (product.image) { %>
+                  <img src="<%= product.image %>" class="card-img-top product-image" alt="<%= product.name %>"
+                    onerror="this.src='/images/imgi_5_home_dietitian_about_product_2.png'">
+                  <% } else { %>
+                    <img src="/images/imgi_5_home_dietitian_about_product_2.png" class="card-img-top product-image"
+                      alt="<%= product.name %>">
+                    <% } %>
+                      <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">
+                          <%= product.name %>
+                        </h5>
+                        <% if (product.description) { %>
+                          <p class="card-text text-muted small">
+                            <%= product.description.substring(0, 100) %>
+                              <% if (product.description.length> 100) { %>...<% } %>
+                          </p>
+                          <% } %>
+                            <div class="mt-auto">
+                              <p class="card-text">
+                                <strong class="text-primary">$<%= product.price %></strong>
+                                <% if (product.department) { %>
+                                  <span class="badge bg-secondary ms-2 text-uppercase" style="font-size: 0.7rem;">
+                                    <%= product.department %>
+                                  </span>
+                                  <% } %>
+                              </p>
+                              <a href="/add-cart/<%= product._id %>" class="btn btn-success w-100 mt-2">
+                                <i class="fas fa-cart-plus me-1"></i> Add to Cart
+                              </a>
+                            </div>
+                      </div>
+              </div>
+            </div>
+            <% }); %>
+        </div>
+        <% } %>
+
+          <% if (totalPages> 1) { %>
+            <nav aria-label="Page navigation" class="mt-5">
+              <ul class="pagination justify-content-center">
+                <% if (currentPage> 1) { %>
+                  <li class="page-item">
+                    <a class="page-link"
+                      href="?page=<%= currentPage - 1 %><% if (selectedCategory && selectedCategory !== 'all') { %>&category=<%= selectedCategory %><% } %><% if (minPrice > 0) { %>&minPrice=<%= minPrice %><% } %><% if (maxPrice < 999999) { %>&maxPrice=<%= maxPrice %><% } %>">Previous</a>
+                  </li>
+                  <% } else { %>
+                    <li class="page-item disabled">
+                      <span class="page-link">Previous</span>
+                    </li>
+                    <% } %>
+
+                      <% for (let i=1; i <=totalPages; i++) { %>
+                        <% if (i===1 || i===totalPages || (i>= currentPage - 2 && i <= currentPage + 2)) { %>
+                            <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                              <a class="page-link"
+                                href="?page=<%= i %><% if (selectedCategory && selectedCategory !== 'all') { %>&category=<%= selectedCategory %><% } %><% if (minPrice > 0) { %>&minPrice=<%= minPrice %><% } %><% if (maxPrice < 999999) { %>&maxPrice=<%= maxPrice %><% } %>">
+                                <%= i %>
+                              </a>
+                            </li>
+                            <% } else if (i===currentPage - 3 || i===currentPage + 3) { %>
+                              <li class="page-item disabled">
+                                <span class="page-link">...</span>
+                              </li>
+                              <% } %>
+                                <% } %>
+
+                                  <% if (currentPage < totalPages) { %>
+                                    <li class="page-item">
+                                      <a class="page-link"
+                                        href="?page=<%= currentPage + 1 %><% if (selectedCategory && selectedCategory !== 'all') { %>&category=<%= selectedCategory %><% } %><% if (minPrice > 0) { %>&minPrice=<%= minPrice %><% } %><% if (maxPrice < 999999) { %>&maxPrice=<%= maxPrice %><% } %>">Next</a>
+                                    </li>
+                                    <% } else { %>
+                                      <li class="page-item disabled">
+                                        <span class="page-link">Next</span>
+                                      </li>
+                                      <% } %>
+              </ul>
+            </nav>
+            <% } %>
+  </div>
+</div>
+
+<style>
+  .product-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #e0e0e0;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-image {
+    height: 200px;
+    object-fit: cover;
+    padding: 10px;
+  }
+
+  .filters-section {
+    background-color: #f8f9fa;
+  }
+
+  .add-to-cart-btn {
+    font-weight: bold;
+  }
+</style>
